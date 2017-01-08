@@ -78,6 +78,15 @@ public class AdbCmds {
 		return null;
 	}
 	
+	public static String adbReverseForward(int remotePort, int localPort){
+		if (m_jadb != null){
+			return RIOdroid.executeCommand("reverse tcp:" + remotePort + " tcp:" + localPort);
+		}else{
+			System.out.println("Current adb connection is null");
+		}
+		return null;
+	}
+	
 	/**
 	 * Forward an external port of the roborio to roborio local port
 	 * @param roboRioPort
